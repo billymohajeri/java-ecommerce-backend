@@ -14,10 +14,8 @@ public class ProductController {
   @Autowired
   private ProductService productService;
 
-  @PostMapping("/products")
-  public void createProduct(@RequestBody Product product) {
-    productService.createProduct(product);
+  @PostMapping
+  public Product createProduct(@RequestBody Product product) {
+    return productService.createProduct(product);
   }
-
-
 }

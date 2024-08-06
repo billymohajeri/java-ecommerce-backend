@@ -1,5 +1,6 @@
 package com.backend.ecommerce;
 
+import com.backend.ecommerce.entities.Product;
 import com.backend.ecommerce.entities.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,5 +12,6 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 public class Database {
-    private List<User> userList;
+  private List<User> userList;
+  private List<Product> productList;
 }
