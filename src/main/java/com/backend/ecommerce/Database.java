@@ -57,4 +57,14 @@ public class Database {
   public static void deleteProduct(UUID id) {
     productList.removeIf(product -> product.getId().equals(id));
   }
+
+  public static Optional<Product> patchProductStock(UUID id, Product newProduct) {
+    for (Product product : productList) {
+      if (product.getId().equals(id)) {
+        product.setStock(newProduct.getStock());
+        return Optional.of(product);
+      }
+    }
+    return Optional.empty();
+  }
 }

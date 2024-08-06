@@ -29,4 +29,8 @@ public class ProductService {
   public void deleteProduct(UUID id) {
     Database.deleteProduct(id);
   }
+
+  public Optional<Product> patchProductStock(UUID id, Product product) {
+    return Database.patchProductStock(id, product);
+  }
 }

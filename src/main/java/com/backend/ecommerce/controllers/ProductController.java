@@ -39,4 +39,9 @@ public class ProductController {
   public void deleteProduct(@PathVariable UUID id) {
     productService.deleteProduct(id);
   }
+
+  @PatchMapping("/{id}")
+  public Optional<Product> patchProductStock(@PathVariable UUID id, @RequestBody Product product) {
+    return productService.patchProductStock(id, product);
+  }
 }
