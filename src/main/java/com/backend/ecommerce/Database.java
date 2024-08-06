@@ -53,4 +53,8 @@ public class Database {
     }
     return Optional.empty();
   }
+
+  public static void deleteProduct(UUID id) {
+    productList.removeIf(product -> product.getId().equals(id));
+  }
 }

@@ -25,4 +25,8 @@ public class ProductService {
   public Optional<Product> updateProduct(UUID id, Product product) {
     return Database.updateProduct(id, product);
   }
+
+  public void deleteProduct(UUID id) {
+    Database.deleteProduct(id);
+  }
 }

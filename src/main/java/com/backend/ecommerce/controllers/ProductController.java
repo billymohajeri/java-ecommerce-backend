@@ -3,7 +3,6 @@ package com.backend.ecommerce.controllers;
 import com.backend.ecommerce.entities.Product;
 import com.backend.ecommerce.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,9 +31,12 @@ public class ProductController {
   }
 
   @PutMapping("/{id}")
-  public ResponseEntity<Product> updateProduct(@PathVariable UUID id, @RequestBody Product product) {
-    Optional<Product> updatedProduct = productService.updateProduct(id, product);
-    return updatedProduct.map(ResponseEntity::ok)
-            .orElseGet(() -> ResponseEntity.notFound().build());
+  public Optional<Product> updateProduct(@PathVariable UUID id, @RequestBody Product product) {
+    return productService.updateProduct(id, product);
+  }
+
+  @DeleteMapping("/{id}")
+  public void deleteProduct(@PathVariable UUID id) {
+    productService.deleteProduct(id);
   }
 }
