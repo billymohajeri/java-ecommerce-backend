@@ -21,4 +21,8 @@ public class ProductService {
   public Optional<Product> getProduct(UUID id) {
     return Database.getProduct(id);
   }
+
+  public Optional<Product> updateProduct(UUID id, Product product) {
+    return Database.updateProduct(id, product);
+  }
 }

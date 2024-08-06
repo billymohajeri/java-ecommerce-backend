@@ -36,4 +36,21 @@ public class Database {
     }
     return Optional.empty();
   }
+
+  public static Optional<Product> updateProduct(UUID id, Product newProduct) {
+    for (Product product : productList) {
+      if (product.getId().equals(id)) {
+        product.setName(newProduct.getName());
+        product.setPrice(newProduct.getPrice());
+        product.setDescription(newProduct.getDescription());
+        product.setImages(newProduct.getImages());
+        product.setColor(newProduct.getColor());
+        product.setMeta(newProduct.getMeta());
+        product.setRating(newProduct.getRating());
+        product.setStock(newProduct.getStock());
+        return Optional.of(product);
+      }
+    }
+    return Optional.empty();
+  }
 }
