@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Getter
@@ -25,5 +26,14 @@ public class Database {
 
   public static List<Product> getAllProducts() {
     return new ArrayList<>(productList);
+  }
+
+  public static Optional<Product> getProduct(UUID id) {
+    for (Product product : productList) {
+      if (product.getId().equals(id)) {
+        return Optional.of(product);
+      }
+    }
+    return Optional.empty();
   }
 }
