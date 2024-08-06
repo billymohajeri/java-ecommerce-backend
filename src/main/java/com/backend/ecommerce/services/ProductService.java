@@ -1,13 +1,18 @@
 package com.backend.ecommerce.services;
 
+import com.backend.ecommerce.Database;
 import com.backend.ecommerce.entities.Product;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ProductService {
   public Product createProduct(Product product) {
-//    Add new product to the database
-    System.out.println("New product created: " + product.getName());
-    return product;
+    return Database.createProduct(product);
+  }
+
+  public List<Product> getAllProducts() {
+    return Database.getAllProducts();
   }
 }
